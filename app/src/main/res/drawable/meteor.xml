@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item android:drawable="@drawable/meteor0"
+        android:duration="100" />
+    <item android:drawable="@drawable/meteor3"
+        android:duration="100" />
+    <item android:drawable="@drawable/meteor5"
+        android:duration="100" />
+    <item android:drawable="@drawable/meteor8"
+        android:duration="100" />
+    <item android:drawable="@drawable/meteor10"
+        android:duration="100" />
+    <item android:drawable="@drawable/meteor11"
+        android:duration="100" />
+    <item android:drawable="@drawable/meteor13"
+        android:duration="100" />
+    <item android:drawable="@drawable/meteor15"
+        android:duration="100" />
+    <item android:drawable="@drawable/meteor18"
+        android:duration="100" />
+    <item android:drawable="@drawable/meteor19"
+        android:duration="100" />
+    <item android:drawable="@drawable/meteor21"
+        android:duration="100" />
+    <item android:drawable="@drawable/meteor23"
+        android:duration="100" />
+    <item android:drawable="@drawable/meteor25"
+        android:duration="100" />
+    <item android:drawable="@drawable/meteor28"
+        android:duration="100" />
+    <item android:drawable="@drawable/meteor29"
+        android:duration="100" />
+    <item android:drawable="@drawable/meteor31"
+        android:duration="100" />
+    <item android:drawable="@drawable/meteor33"
+        android:duration="100" />
+</animation-list>

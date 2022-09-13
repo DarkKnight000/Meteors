@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/space_background"
+    android:windowActionBar="false"
+    android:windowNoTitle="true"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="start"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/buttonGuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GO TO SIGN UP"
+            android:textSize="20sp"
+            android:onClick="goToSignUp"
+            android:fontFamily="@font/acme"
+            android:textColor="@color/white"
+            android:backgroundTint="@android:color/holo_orange_dark">
+        </Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="30dp">
+        <TextView
+            android:id="@+id/reg_auth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="30dp"
+            android:fontFamily="@font/acme"
+            android:textColor="@android:color/holo_orange_dark"
+            android:gravity="center"
+            android:text="LOG IN"
+            android:textSize="60sp">
+        </TextView>
+
+        <EditText
+            android:id="@+id/editTextNick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:backgroundTint="@android:color/holo_orange_dark"
+            android:hint="Nick/Email/ID"
+            android:maxLines="2"
+            android:maxLength="30"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textColorHint="@android:color/holo_orange_dark"
+            android:textCursorDrawable="@android:color/holo_orange_dark"
+            android:textSize="20sp">
+        </EditText>
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:maxLines="2"
+            android:maxLength="100"
+            android:backgroundTint="@android:color/holo_orange_dark"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textColorHint="@android:color/holo_orange_dark"
+            android:textCursorDrawable="@android:color/holo_orange_dark"
+            android:textSize="20sp">
+        </EditText>
+
+        <Button
+            android:id="@+id/buttonSend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:fontFamily="@font/acme"
+            android:onClick="logIn"
+            android:text="LOG IN"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:backgroundTint="@android:color/holo_orange_dark">
+        </Button>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:text="Forgot password?"
+            android:textSize="18sp"
+            android:textColor="@android:color/holo_orange_dark"
+            android:fontFamily="@font/acme"
+            android:onClick="goToRecovery"
+            android:textAlignment="center">
+        </TextView>
+    </LinearLayout>
+</LinearLayout>

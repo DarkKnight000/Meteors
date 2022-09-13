@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/space_background"
+    android:windowActionBar="false"
+    android:windowNoTitle="true"
+    tools:context=".SignUpActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="end"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/buttonGuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PLAY AS A GUEST"
+            android:textSize="20sp"
+            android:onClick="goToGuestPlay"
+            android:fontFamily="@font/acme"
+            android:textColor="@color/white"
+            android:backgroundTint="@android:color/holo_orange_dark">
+        </Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="30dp">
+        <TextView
+            android:id="@+id/reg_auth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="30dp"
+            android:fontFamily="@font/acme"
+            android:textColor="@android:color/holo_orange_dark"
+            android:gravity="center"
+            android:text="SIGN UP"
+            android:textSize="60sp">
+        </TextView>
+
+        <EditText
+            android:id="@+id/editTextNick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:backgroundTint="@android:color/holo_orange_dark"
+            android:hint="Nickname"
+            android:maxLines="2"
+            android:maxLength="30"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textColorHint="@android:color/holo_orange_dark"
+            android:textCursorDrawable="@android:color/holo_orange_dark"
+            android:textSize="20sp">
+        </EditText>
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:maxLines="2"
+            android:maxLength="50"
+            android:backgroundTint="@android:color/holo_orange_dark"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textColorHint="@android:color/holo_orange_dark"
+            android:textCursorDrawable="@android:color/holo_orange_dark"
+            android:textSize="20sp">
+        </EditText>
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:maxLines="2"
+            android:maxLength="100"
+            android:backgroundTint="@android:color/holo_orange_dark"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textColorHint="@android:color/holo_orange_dark"
+            android:textCursorDrawable="@android:color/holo_orange_dark"
+            android:textSize="20sp">
+        </EditText>
+
+        <Button
+            android:id="@+id/buttonSend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:fontFamily="@font/acme"
+            android:onClick="checkUser"
+            android:text="SIGN UP"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:backgroundTint="@android:color/holo_orange_dark">
+        </Button>
+
+        <LinearLayout
+            android:id="@+id/linearCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:visibility="invisible">
+            <EditText
+                android:id="@+id/editTextCode"
+                android:inputType="number"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:hint="Code"
+                android:maxLines="1"
+                android:maxLength="6"
+                android:backgroundTint="@android:color/holo_orange_dark"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textColorHint="@android:color/holo_orange_dark"
+                android:textCursorDrawable="@android:color/holo_orange_dark">
+            </EditText>
+            <Button
+                android:id="@+id/codeButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FINISH SIGN UP"
+                android:textSize="20sp"
+                android:layout_marginVertical="10dp"
+                android:fontFamily="@font/acme"
+                android:textColor="@color/white"
+                android:onClick="createNewGamer"
+                android:backgroundTint="@android:color/holo_orange_dark">
+            </Button>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/acme"
+            android:text="Already have an account?"
+            android:textAlignment="viewStart"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="16sp"
+            android:onClick="goToLogIn">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:text="Forgot password?"
+            android:textSize="16sp"
+            android:textColor="@android:color/holo_orange_dark"
+            android:fontFamily="@font/acme"
+            android:onClick="goToRecovery"
+            android:textAlignment="viewEnd">
+        </TextView>
+    </LinearLayout>
+</LinearLayout>

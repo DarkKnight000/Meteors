@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/space_background"
+    android:windowActionBar="false"
+    android:windowNoTitle="true"
+    tools:context=".RecoveryActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="start"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/buttonGuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GO TO LOG IN"
+            android:textSize="20sp"
+            android:fontFamily="@font/acme"
+            android:textColor="@color/white"
+            android:onClick="goToLogIn"
+            android:backgroundTint="@android:color/holo_orange_dark">
+        </Button>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/reg_auth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="10dp"
+        android:fontFamily="@font/acme"
+        android:textColor="@android:color/holo_orange_dark"
+        android:gravity="center"
+        android:text="PASSWORD RECOVERY"
+        android:textSize="39sp">
+    </TextView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="30dp">
+            <EditText
+                android:id="@+id/editTextNickEmailId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:backgroundTint="@android:color/holo_orange_dark"
+                android:hint="Nick/Email/ID"
+                android:maxLines="2"
+                android:maxLength="30"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textColorHint="@android:color/holo_orange_dark"
+                android:textCursorDrawable="@android:color/holo_orange_dark"
+                android:textSize="20sp">
+            </EditText>
+
+            <Button
+                android:id="@+id/buttonSend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:fontFamily="@font/acme"
+                android:text="SEND CODE"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:onClick="checkUser"
+                android:backgroundTint="@android:color/holo_orange_dark">
+            </Button>
+            <LinearLayout
+                android:id="@+id/linearRecoveryCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp"
+                android:orientation="vertical"
+                android:visibility="invisible">
+                <EditText
+                    android:id="@+id/editTextRecoveryCode"
+                    android:inputType="number"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:hint="Code"
+                    android:maxLines="1"
+                    android:maxLength="6"
+                    android:backgroundTint="@android:color/holo_orange_dark"
+                    android:textColor="@android:color/holo_orange_dark"
+                    android:textColorHint="@android:color/holo_orange_dark"
+                    android:textCursorDrawable="@android:color/holo_orange_dark">
+                </EditText>
+                <Button
+                    android:id="@+id/recoveryCodeButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CHECK CODE"
+                    android:textSize="20sp"
+                    android:layout_marginVertical="10dp"
+                    android:fontFamily="@font/acme"
+                    android:textColor="@color/white"
+                    android:onClick="checkRecoveryCode"
+                    android:backgroundTint="@android:color/holo_orange_dark">
+                </Button>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearNewPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="invisible">
+                <EditText
+                    android:id="@+id/editTextPassword"
+                    android:inputType="textPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:hint="Password"
+                    android:maxLines="1"
+                    android:backgroundTint="@android:color/holo_orange_dark"
+                    android:textColor="@android:color/holo_orange_dark"
+                    android:textColorHint="@android:color/holo_orange_dark"
+                    android:textCursorDrawable="@android:color/holo_orange_dark">
+                </EditText>
+                <EditText
+                    android:id="@+id/editTextConfirmPassword"
+                    android:inputType="textPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:hint="Confirm password"
+                    android:maxLines="1"
+                    android:backgroundTint="@android:color/holo_orange_dark"
+                    android:textColor="@android:color/holo_orange_dark"
+                    android:textColorHint="@android:color/holo_orange_dark"
+                    android:textCursorDrawable="@android:color/holo_orange_dark">
+                </EditText>
+                <Button
+                    android:id="@+id/finishButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="FINISH SIGN UP"
+                    android:textSize="20sp"
+                    android:layout_marginVertical="10dp"
+                    android:fontFamily="@font/acme"
+                    android:textColor="@color/white"
+                    android:onClick="setNewPasswords"
+                    android:backgroundTint="@android:color/holo_orange_dark">
+                </Button>
+            </LinearLayout>
+        </LinearLayout>
+
+</LinearLayout>
