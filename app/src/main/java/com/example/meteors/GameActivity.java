@@ -822,7 +822,9 @@ public class GameActivity extends AppCompatActivity
                     UserData.setGold(UserData.getGold() + gold);
                     sqlcmd = "UPDATE users \n" +
                              "SET \n" +
-                             "gold = gold + " + gold + " \n" +
+                             "gold = gold + " + gold + ", \n" +
+                             "total_games = total_games + 1, \n" +
+                             "total_meteors = total_meteors + " + score + " \n" +
                              "WHERE user_id = " + UserData.getUser_id();
                     rs = conDB.getConnection(sqlcmd);
 
@@ -867,6 +869,10 @@ public class GameActivity extends AppCompatActivity
             super.onPostExecute(result);
 
             UserData.sortArray();
+
+            UserData.setGold(UserData.getGold() + gold);
+            UserData.setTotal_games(UserData.getTotal_games() + 1);
+            UserData.setTotal_meteors(UserData.getTotal_meteors() + score);
         }
     }
 

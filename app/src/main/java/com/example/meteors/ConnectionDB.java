@@ -30,6 +30,7 @@ public class ConnectionDB
             con = DriverManager.getConnection(crypt.Decode(url), crypt.Decode(user), crypt.Decode(pass));
             st = con.createStatement();
             rs = st.executeQuery(sqlcmd);
+
             //con.close();
         }
         catch (SQLException e)

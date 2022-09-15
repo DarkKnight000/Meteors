@@ -28,6 +28,7 @@ public class LoginActivity extends AppCompatActivity
     private EditText editTextPassword;
 
     String sqlcmd;
+    String sqlcmd2;
 
     Crypt crypt;
 
@@ -120,19 +121,16 @@ public class LoginActivity extends AppCompatActivity
         password  = editTextPassword.getText().toString().trim();
         password  = crypt.Encode(password);
 
-        sqlcmd = "START TRANSACTION; \n" +
-                 "SELECT * FROM users\n" +
+        sqlcmd = "SELECT * FROM users \n" +
                  "WHERE (nickname = '" + nick_email_id + "' OR Email = '" + nick_email_id + "' OR ID = '" + nick_email_id + "' OR ID = '" + ID + "') " +
-                 "AND password = '" + password + "'; \n" +
-                 "UPDATE users" +
-                 "SET last_access = CURRENT_TIMESTAMP()" +
-                 "WHERE nickname = '" + nick_email_id + "' OR Email = '" + nick_email_id + "' OR ID = '" + nick_email_id + "' OR ID = '" + ID + "'; \n" +
-                 "COMMIT;";
+                 "AND password = '" + password + "';";
 
-        //Toast.makeText(this, "" + sqlcmd, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "" + sqlcmd, Toast.LENGTH_LONG).show();
 
         ConnectMySql ms = new ConnectMySql();
         ms.execute();
+
+
     }
 
     // Вход в игру:
@@ -177,6 +175,8 @@ public class LoginActivity extends AppCompatActivity
                 UserData.setEmail("");
                 UserData.setPassword("");
                 UserData.setGold(500);
+                UserData.setTotal_games(0);
+                UserData.setTotal_meteors(0);
                 UserData.setOnline(0);
                 UserData.setReg_gate(null);
                 UserData.setLast_access(null);
@@ -189,17 +189,26 @@ public class LoginActivity extends AppCompatActivity
                 {
                     //result = rs.getString(1);
 
-                    UserData.setUser_id(rs.getInt(1));
-                    UserData.setID(crypt.Decode(rs.getString(2)));
-                    UserData.setNickname(crypt.Decode(rs.getString(3)));
-                    UserData.setEmail(crypt.Decode(rs.getString(4)));
-                    UserData.setPassword(crypt.Decode(rs.getString(5)));
-                    UserData.setGold(rs.getInt(6));
-                    UserData.setOnline(rs.getInt(7));
-                    UserData.setReg_gate(rs.getTimestamp(8));
-                    UserData.setLast_access(rs.getTimestamp(9));
+                    UserData.setUser_id(rs.getInt("user_id"));
+                    UserData.setID(crypt.Decode(rs.getString("ID")));
+                    UserData.setNickname(crypt.Decode(rs.getString("nickname")));
+                    UserData.setEmail(crypt.Decode(rs.getString("Email")));
+                    UserData.setPassword(crypt.Decode(rs.getString("password")));
+                    UserData.setGold(rs.getInt("gold"));
+                    UserData.setTotal_games(rs.getInt("total_games"));
+                    UserData.setTotal_meteors(rs.getInt("total_meteors"));
+                    UserData.setOnline(rs.getInt("online"));
+                    UserData.setReg_gate(rs.getTimestamp("reg_date"));
+                    UserData.setLast_access(rs.getTimestamp("last_access"));
                 }
 
+                // Обновление последнего входа:
+                sqlcmd = "UPDATE users \n" +
+                         "SET last_access = CURRENT_TIMESTAMP \n" +
+                         "WHERE user_id = " + UserData.getUser_id();
+                rs = conDB.getConnection(sqlcmd);
+
+                // Если пользователь существует:
                 if(UserData.getUser_id() != 0)
                 {
                     UserData.setIsGuest(false);

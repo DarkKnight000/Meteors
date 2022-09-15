@@ -19,11 +19,15 @@ public class UserData
     private static String nickname;
     private static String Email;
     private static String password;
-    private static int gold = 500;
+    private static int gold;
     private static int online;
     private static Timestamp reg_gate;
     private static Timestamp last_access;
+    private static int total_meteors;
+    private static int total_games;
     public static int[] userTop = new int[10];
+
+
 
     public static String[][] spaceBgData;
     public static int[][] spaceSettings;
@@ -57,6 +61,14 @@ public class UserData
     public static int getGold()
     {
         return gold;
+    }
+    public static int getTotal_games()
+    {
+        return total_games;
+    }
+    public static int getTotal_meteors()
+    {
+        return total_meteors;
     }
     public static int getOnline()
     {
@@ -98,6 +110,14 @@ public class UserData
     public static void setGold(int gold)
     {
         UserData.gold = gold;
+    }
+    public static void setTotal_games(int total_games)
+    {
+        UserData.total_games = total_games;
+    }
+    public static void setTotal_meteors(int total_meteors)
+    {
+        UserData.total_meteors = total_meteors;
     }
     public static void setOnline(int online)
     {

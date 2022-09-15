@@ -17,6 +17,10 @@ public class UserDataActivityPU extends AppCompatActivity
     TextView userNickTextView;
     TextView userIdTextView;
     TextView userEmailTextView;
+    TextView totalGoldTextView;
+    TextView totalGamesTextView;
+    TextView totalMeteorsTextView;
+    TextView averageTextView;
 
     Crypt crypt;
 
@@ -112,6 +116,17 @@ public class UserDataActivityPU extends AppCompatActivity
             userNickTextView.setText(UserData.getNickname());
             userIdTextView.setText(UserData.getID());
             userEmailTextView.setText(UserData.getEmail());
+            totalGoldTextView.setText("" + UserData.getGold());
+            totalGamesTextView.setText("" + UserData.getTotal_games());
+            totalMeteorsTextView.setText("" + UserData.getTotal_meteors());
+
+            try
+            {
+                int average = UserData.getTotal_meteors()/UserData.getTotal_games();
+                averageTextView.setText("" + average);
+            }
+            catch (Exception e)
+            {}
         }
 
         @Override
@@ -127,22 +142,24 @@ public class UserDataActivityPU extends AppCompatActivity
                 String password = crypt.Encode(UserData.getPassword());
 
                 sqlcmd = "SELECT * FROM users\n" +
-                        "WHERE nickname = '" + nick + "' AND password = '" + password + "'";
+                         "WHERE nickname = '" + nick + "' AND password = '" + password + "'";
 
                 rs = conDB.getConnection(sqlcmd);
 
                 while (rs.next())
                 {
 
-                    UserData.setUser_id(rs.getInt(1));
-                    UserData.setID(crypt.Decode(rs.getString(2)));
-                    UserData.setNickname(crypt.Decode(rs.getString(3)));
-                    UserData.setEmail(crypt.Decode(rs.getString(4)));
-                    UserData.setPassword(crypt.Decode(rs.getString(5)));
-                    UserData.setGold(rs.getInt(6));
-                    UserData.setOnline(rs.getInt(7));
-                    UserData.setReg_gate(rs.getTimestamp(8));
-                    UserData.setLast_access(rs.getTimestamp(9));
+                    UserData.setUser_id(rs.getInt("user_id"));
+                    UserData.setID(crypt.Decode(rs.getString("ID")));
+                    UserData.setNickname(crypt.Decode(rs.getString("nickname")));
+                    UserData.setEmail(crypt.Decode(rs.getString("Email")));
+                    UserData.setPassword(crypt.Decode(rs.getString("password")));
+                    UserData.setGold(rs.getInt("gold"));
+                    UserData.setTotal_games(rs.getInt("total_games"));
+                    UserData.setTotal_meteors(rs.getInt("total_meteors"));
+                    UserData.setOnline(rs.getInt("online"));
+                    UserData.setReg_gate(rs.getTimestamp("reg_date"));
+                    UserData.setLast_access(rs.getTimestamp("last_access"));
                 }
 
                 res = result;
@@ -163,6 +180,17 @@ public class UserDataActivityPU extends AppCompatActivity
             userNickTextView.setText(UserData.getNickname());
             userIdTextView.setText(UserData.getID());
             userEmailTextView.setText(UserData.getEmail());
+            totalGoldTextView.setText("" + UserData.getGold());
+            totalGamesTextView.setText("" + UserData.getTotal_games());
+            totalMeteorsTextView.setText("" + UserData.getTotal_meteors());
+
+            try
+            {
+                int average = UserData.getTotal_meteors()/UserData.getTotal_games();
+                averageTextView.setText("" + average);
+            }
+            catch (Exception e)
+            {}
         }
     }
 }

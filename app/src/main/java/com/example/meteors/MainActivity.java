@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity
     Button buttonSettings;
     Button buttonMessages;
 
+    String sqlcmd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -82,6 +83,11 @@ public class MainActivity extends AppCompatActivity
 
         //UserData ud = new UserData();
         //ud.getDataFromDb();
+
+        /*sqlcmd = "UPDATE users \n" +
+                 "SET last_access = CURRENT_TIMESTAMP() \n" +
+                 "WHERE user_id = " + UserData.getUser_id();*/
+
 
         buttonGame = findViewById(R.id.buttonGame);
         buttonSettings = findViewById(R.id.buttonSettings);

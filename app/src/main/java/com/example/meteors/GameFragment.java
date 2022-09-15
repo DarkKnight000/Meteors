@@ -111,6 +111,10 @@ public class GameFragment extends Fragment
         userDataPopUpActivity.userNickTextView = popupView.findViewById(R.id.userNickTextView);
         userDataPopUpActivity.userIdTextView = popupView.findViewById(R.id.userIdTextView);
         userDataPopUpActivity.userEmailTextView = popupView.findViewById(R.id.userEmailTextView);
+        userDataPopUpActivity.totalGoldTextView = popupView.findViewById(R.id.totalGoldTextView);
+        userDataPopUpActivity.totalGamesTextView = popupView.findViewById(R.id.totalGamesTextView);
+        userDataPopUpActivity.totalMeteorsTextView = popupView.findViewById(R.id.totalMeteorsTextView);
+        userDataPopUpActivity.averageTextView = popupView.findViewById(R.id.averageTextView);
 
 
         FloatingActionButton exitUserDataButton = popupView.findViewById(R.id.exitUserDataButton);
