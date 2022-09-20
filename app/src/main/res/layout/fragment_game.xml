@@ -60,6 +60,12 @@
                     android:fontFamily="@font/acme"
                     android:textSize="50sp">
                 </Button>
+                <Button
+                    android:id="@+id/openPay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="openPay">
+                </Button>
             </LinearLayout>
 
         </RelativeLayout>

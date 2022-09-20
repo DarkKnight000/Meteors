@@ -35,6 +35,7 @@ public class GameFragment extends Fragment
     private ImageView showTopImageView;
 
     private Button playButton;
+    private Button openPay;
     ImageView starImageView;
     AnimationDrawable starAnimation;
     Crypt crypt;
@@ -83,10 +84,26 @@ public class GameFragment extends Fragment
             }
         });
 
+        openPay = v.findViewById(R.id.openPay);
+        openPay.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                openPay();
+
+            }
+        });
+
         userDataPopUpActivity = new UserDataActivityPU();
         topPopUpActivity = new TopActivityPU();
 
         return v;
+    }
+
+    void openPay()
+    {
+        Intent intent = new Intent(getActivity(), PaymentActivity.class);
+        startActivity(intent);
     }
 
     // Показать данные пользователя:
