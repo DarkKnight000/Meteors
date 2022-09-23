@@ -166,9 +166,9 @@ public class GameActivity extends AppCompatActivity
         boom_sound.load(this, R.raw.boom_sound, 1);
 
         main_layout = findViewById(R.id.main_layout);
-        if (Settings.imageSpace != 0)
+        if (UserData.getWhichSpaceUses() != 0)
         {
-            main_layout.setBackgroundResource(Settings.main_activity[Settings.imageSpace]);
+            main_layout.setBackgroundResource(Settings.main_activity[UserData.getWhichSpaceUses()]);
         }
 
         animatorListener = new Animator.AnimatorListener()
@@ -374,11 +374,11 @@ public class GameActivity extends AppCompatActivity
 
                 if ((score % 10) == 0 && score>=10)
                 {
-                    if (score % 200 == 0 && score <= 800)
+                    if (score % 200 == 0 && score <= 1000)
                     {
                         k += 0.001;
                     }
-                    else if (score > 800)
+                    else if (score > 1000)
                     {
                         k = 1;
 

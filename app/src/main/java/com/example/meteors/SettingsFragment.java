@@ -1,6 +1,8 @@
 package com.example.meteors;
 
+import android.app.ProgressDialog;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -17,6 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class SettingsFragment extends Fragment
@@ -88,5 +91,57 @@ public class SettingsFragment extends Fragment
 
         recyclerView2.setAdapter(adapter2);
         recyclerView2.setLayoutManager(layoutManager2);
+    }
+
+    public void setSP()
+    {
+        SetNewSpacePlanetMySql setsp = new SetNewSpacePlanetMySql();
+        setsp.execute();
+    }
+
+    private class SetNewSpacePlanetMySql extends AsyncTask<String, Void, String>
+    {
+        String res = "";
+        ResultSet rs = null;
+
+        ConnectionDB conDB = new ConnectionDB();
+
+        @Override
+        protected void onPreExecute()
+        {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... params)
+        {
+            try
+            {
+
+                String result = ""; // = "Database Connection Successful\n";
+
+                String sqlcmd;
+                sqlcmd = "UPDATE users \n" +
+                         "SET space_bg_id = " + UserData.getWhichSpaceUses() + ", \n" +
+                         "planet_bg_id = " + UserData.getWhichPlanetUses() + " \n" +
+                         "WHERE user_id = " + UserData.getUser_id();
+                rs = conDB.getConnection(sqlcmd);
+                //Toast.makeText(getContext(), "" + sqlcmd, Toast.LENGTH_LONG).show();
+
+                res = result;
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+                res = e.toString();
+            }
+            return res;
+        }
+
+        @Override
+        protected void onPostExecute(String result)
+        {
+            super.onPostExecute(result);
+        }
     }
 }

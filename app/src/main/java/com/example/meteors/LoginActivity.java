@@ -197,6 +197,8 @@ public class LoginActivity extends AppCompatActivity
                     UserData.setGold(rs.getInt("gold"));
                     UserData.setTotal_games(rs.getInt("total_games"));
                     UserData.setTotal_meteors(rs.getInt("total_meteors"));
+                    UserData.setWhichSpaceUses(rs.getInt("space_bg_id"));
+                    UserData.setWhichPlanetUses(rs.getInt("planet_bg_id"));
                     UserData.setOnline(rs.getInt("online"));
                     UserData.setReg_gate(rs.getTimestamp("reg_date"));
                     UserData.setLast_access(rs.getTimestamp("last_access"));

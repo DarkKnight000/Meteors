@@ -71,13 +71,17 @@ public class SpacePlanetAdapter extends RecyclerView.Adapter<SpacePlanetAdapter.
             public void onClick(View view)
             {
                 row_index=position;
-                Settings.imageSpace = position;
+                UserData.setWhichSpaceUses(position);
+
+                SettingsFragment sf = new SettingsFragment();
+                sf.setSP();
+
                 notifyDataSetChanged();
             }
         });
 
         // Изменение цвета при нажатии:
-        if (row_index==position || position==Settings.imageSpace)
+        if (row_index==position || position==UserData.getWhichSpaceUses())
         {
             recyclerViewViewHolder.cardViewColor.setCardBackgroundColor(Color.parseColor("#008000"));
         }

@@ -19,15 +19,15 @@ public class UserData
     private static String nickname;
     private static String Email;
     private static String password;
+    private static int whichSpaceUses;
+    private static int whichPlanetUses;
     private static int gold;
+    private static int total_meteors;
+    private static int total_games;
     private static int online;
     private static Timestamp reg_gate;
     private static Timestamp last_access;
-    private static int total_meteors;
-    private static int total_games;
     public static int[] userTop = new int[10];
-
-
 
     public static String[][] spaceBgData;
     public static int[][] spaceSettings;
@@ -69,6 +69,14 @@ public class UserData
     public static int getTotal_meteors()
     {
         return total_meteors;
+    }
+    public static int getWhichSpaceUses()
+    {
+        return whichSpaceUses;
+    }
+    public static int getWhichPlanetUses()
+    {
+        return whichPlanetUses;
     }
     public static int getOnline()
     {
@@ -118,6 +126,14 @@ public class UserData
     public static void setTotal_meteors(int total_meteors)
     {
         UserData.total_meteors = total_meteors;
+    }
+    public static void setWhichSpaceUses(int whichSpaceUses)
+    {
+        UserData.whichSpaceUses = whichSpaceUses;
+    }
+    public static void setWhichPlanetUses(int whichPlanetUses)
+    {
+        UserData.whichPlanetUses = whichPlanetUses;
     }
     public static void setOnline(int online)
     {
